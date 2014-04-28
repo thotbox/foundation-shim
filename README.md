@@ -191,7 +191,7 @@ For the most part, clearing works out of the box, however F3's clearing tends to
 
 #### Top Bar
 
-For the most part, top bar works out of the box. The markup struction hasn't changed significantly from F3 to F5, although default styles vary somewhat.
+Top bar also works fairly well out of the box. The markup structure hasn't changed significantly from F3 to F5, although default styles vary somewhat.
 
 ### Notes
 
