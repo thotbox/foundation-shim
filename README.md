@@ -2,7 +2,38 @@
 
 Translates Foundation 5 markup for use with Foundation 3 JS and CSS, providing legacy browser support for Internet Explorer 8. For builds where Internet Explorer 8 support is a must (should be most builds), this should reduce the amount to IE8/F3 specific markup you need to write and maintain.
 
-Grid Example (F5):
+### Disclaimer
+
+ZURB Foundation is a free collection of tools for creating websites and web applications. It contains HTML and CSS-based design templates for typography, forms, buttons, navigation and other interface components, as well as optional JavaScript extensions.
+
+All credit for Foundation (all verions) goes to Zurb.
+
+Form more information:
+
+http://foundation.zurb.com/
+http://zurb.com/
+
+### Usage
+
+Conditionally load Foundation CSS/JS in your page header/footer using whatever serverside conditionals you prefer. See example.html for reference.
+
+Note: For ExpressionEngine users, check out my browser detection plugin (https://github.com/thotbox/expressionengine-browser-detect)
+
+Make sure that your Foundation 5 initialization happens conditionally so that IE8 doesn't throw an error. Since I'm writing an html class in my header, I prefer to test for that.
+
+Example:
+
+```
+if (!$('html').hasClass('lt-ie9')) {
+    $(document).foundation();
+}
+```
+
+#### Grid
+
+Default Foundation grid classes for rows, columns and block-grids should translate on the fly.
+
+Example (F5):
 
 ```
 <div class="row">
@@ -28,7 +59,34 @@ Becomes (F3):
 </div>
 ```
 
-Tabs Example (F5):
+For classless builds (SCSS), add selectors to the custom arrays provided in foundation-shim.js.
+
+Example:
+
+```
+var sixCol = [ "#div_id_1,#div_id_2,#div_id_3" ];
+$.each( sixCol, function( i, val ) {
+    $(val).addClass("six columns");
+});
+```
+
+Important: Currently no support for offsets and source ordering. I'll add that once I run into an instance where I need it for my own projects.
+
+#### Interchange
+
+Default markup for Foundation 5's Interchange images do not include a "src" attribute (this is written by Interchange's javascript). So as not to interfere with Interchange's operations in Foundation 5, you can either output a src conditionally for IE8, or in situations where caching prevents conditionals from firing this deep in your code, add a custom "fallback" parameter to your image tag pointing to your default image. The shim will rename all instances of the "fallback" paramater to "src" after page load.
+
+Example:
+
+```
+<img fallback="/path/to/default.jpg" data-interchange="[/path/to/default.jpg, (default)], [/path/to/bigger-image.jpg, (large)]">
+```
+
+#### Tabs
+
+Tab markup translates well, despite the significant differences in the structure. You'll need to recreate any custom styles you've setup to work with the translated F3 markup.
+
+Example (F5):
 
 ```
 <dl class="tabs" data-tab>
@@ -72,7 +130,11 @@ Becomes (F3):
 </ul>
 ```
 
-Accordion Example (F5):
+#### Accordions
+
+Accordian markup also translates well. Again, you'll need to recreate any custom styles you've setup to work with the translated F3 markup.
+
+Example (F5):
 
 ```
 <dl class="accordion" data-accordion>
@@ -121,63 +183,6 @@ Becomes (F3):
     </li>
 </ul>
 ```
-
-
-### Disclaimer
-
-ZURB Foundation is a free collection of tools for creating websites and web applications. It contains HTML and CSS-based design templates for typography, forms, buttons, navigation and other interface components, as well as optional JavaScript extensions.
-
-All credit for Foundation (all verions) goes to Zurb.
-
-Form more information:
-
-http://foundation.zurb.com/
-http://zurb.com/
-
-### Usage
-
-Conditionally load Foundation CSS/JS in your page header/footer using whatever serverside conditionals you prefer. See example.html for reference.
-
-Note: For ExpressionEngine users, check out my browser detection plugin (https://github.com/thotbox/expressionengine-browser-detect)
-
-Make sure that your Foundation 5 initialization happens conditionally so that IE8 doesn't throw an error. Since I'm writing an html class in my header, I prefer to test for that.
-
-Example:
-
-```
-if (!$('html').hasClass('lt-ie9')) {
-    $(document).foundation();
-}
-```
-
-#### Grid
-
-Default Foundation grid classes for rows, columns and block-grids should translate on the fly. For classless builds (SCSS), add selectors to the custom arrays provided in foundation-shim.js.
-
-Example:
-
-```
-var sixCol = [ "#div_id_1,#div_id_2,#div_id_3" ];
-$.each( sixCol, function( i, val ) {
-    $(val).addClass("six columns");
-});
-```
-
-Important: Currently no support for offsets and source ordering. I'll add that once I run into an instance where I need it for my own projects.
-
-#### Interchange
-
-Default markup for Foundation 5's Interchange images do not include a "src" attribute (this is written by Interchange's javascript). So as not to interfere with Interchange's operations in Foundation 5, you can either output a src conditionally for IE8, or in situations where caching prevents conditionals from firing this deep in your code, add a custom "fallback" parameter to your image tag pointing to your default image. The shim will rename all instances of the "fallback" paramater to "src" after page load.
-
-Example:
-
-```
-<img fallback="" data-interchange="[/path/to/default.jpg, (default)], [/path/to/bigger-image.jpg, (large)]">
-```
-
-#### Tabs and Accordions
-
-Tab and accordion markup translates well, despite the significant differences in the structure. You'll need to recreate any custom styles you've setup to work with the translated F3 markup.
 
 #### Clearing
 
