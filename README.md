@@ -11,6 +11,7 @@ All credit for Foundation (all verions) goes to Zurb.
 Form more information:
 
 http://foundation.zurb.com/
+
 http://zurb.com/
 
 ### Usage
@@ -201,6 +202,7 @@ Since IE8 isn't used on mobile devices, I recommend setting a sensible minimum b
 ### Foundation Docs
 
 Foundation 5 - http://foundation.zurb.com/docs/
+
 Foundation 3 - http://foundation.zurb.com/docs/v/3.2.5/
 
 
