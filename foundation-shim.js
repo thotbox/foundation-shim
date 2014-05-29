@@ -8,6 +8,23 @@
 
 $(document).ready(function(){
 
+    // Change Element Function (used to restructure various markup)
+
+    (function($) {
+        $.fn.changeElementType = function(newType) {
+            var attrs = {};
+            if (!(this[0] && this[0].attributes))
+                return;
+
+            $.each(this[0].attributes, function(idx, attr) {
+                attrs[attr.nodeName] = attr.nodeValue;
+            });
+            this.replaceWith(function() {
+                return $("<" + newType + "/>", attrs).append($(this).contents());
+            });
+        };
+    })(jQuery);
+
     // Custom Row Fixes (add selectors to array)
 
     var row = [ "#div_id" ];
@@ -128,6 +145,13 @@ $(document).ready(function(){
     $(".medium-centered").removeClass("medium-centered small-centered").addClass("centered");
     $(".small-centered").removeClass("small-centered").addClass("centered");
 
+    // Custom Centered Column Fixes (add selectors to array)
+
+    var centeredCol = [ "#div_id" ];
+    $.each( centeredCol, function( i, val ) {
+        $(val).addClass("centered");
+    });
+
     // Source Ordering Fixes (Don't Change)
 
     $(".large-push-1").removeClass("large-push-1 medium-push-1 medium-push-2 medium-push-3 medium-push-4 medium-push-5 medium-push-6 medium-push-7 medium-push-8 medium-push-9 medium-push-10 medium-push-11 medium-push-12 small-push-1 small-push-2 small-push-3 small-push-4 small-push-5 small-push-6 small-push-7 small-push-8 small-push-9 small-push-10 small-push-11 small-push-12").addClass("push-one");
@@ -208,7 +232,129 @@ $(document).ready(function(){
     $(".small-pull-11").removeClass("small-pull-11").addClass("pull-eleven");
     $(".small-pull-12").removeClass("small-pull-12").addClass("pull-twelve");
 
-    // Offset Column Fixes (Don't Change)
+    // Custom Source Ordering Fixes (add selectors to array)
+
+    var onePush = [ "#div_id" ];
+    $.each( onePush, function( i, val ) {
+        $(val).addClass("push-one");
+    });
+
+    var twoPush = [ "#div_id" ];
+    $.each( twoPush, function( i, val ) {
+        $(val).addClass("push-two");
+    });
+
+    var threePush = [ "#div_id" ];
+    $.each( threePush, function( i, val ) {
+        $(val).addClass("push-three");
+    });
+
+    var fourPush = [ "#div_id" ];
+    $.each( fourPush, function( i, val ) {
+        $(val).addClass("push-four");
+    });
+
+    var fivePush = [ "#div_id" ];
+    $.each( fivePush, function( i, val ) {
+        $(val).addClass("push-five");
+    });
+
+    var sixPush = [ "#div_id" ];
+    $.each( sixPush, function( i, val ) {
+        $(val).addClass("push-six");
+    });
+
+    var sevenPush = [ "#div_id" ];
+    $.each( sevenPush, function( i, val ) {
+        $(val).addClass("push-seven");
+    });
+
+    var eightPush = [ "#div_id" ];
+    $.each( eightPush, function( i, val ) {
+        $(val).addClass("push-eight");
+    });
+
+    var ninePush = [ "#div_id" ];
+    $.each( ninePush, function( i, val ) {
+        $(val).addClass("push-nine");
+    });
+
+    var tenPush = [ "#div_id" ];
+    $.each( tenPush, function( i, val ) {
+        $(val).addClass("push-ten");
+    });
+
+    var elevenPush = [ "#div_id" ];
+    $.each( elevenPush, function( i, val ) {
+        $(val).addClass("push-eleven");
+    });
+
+    var twelvePush = [ "#div_id" ];
+    $.each( twelvePush, function( i, val ) {
+        $(val).addClass("push-twelve");
+    });
+
+    var onePull = [ "#div_id" ];
+    $.each( onePull, function( i, val ) {
+        $(val).addClass("pull-one");
+    });
+
+    var twoPull = [ "#div_id" ];
+    $.each( twoPull, function( i, val ) {
+        $(val).addClass("pull-two");
+    });
+
+    var threePull = [ "#div_id" ];
+    $.each( threePull, function( i, val ) {
+        $(val).addClass("pull-three");
+    });
+
+    var fourPull = [ "#div_id" ];
+    $.each( fourPull, function( i, val ) {
+        $(val).addClass("pull-four");
+    });
+
+    var fivePull = [ "#div_id" ];
+    $.each( fivePull, function( i, val ) {
+        $(val).addClass("pull-five");
+    });
+
+    var sixPull = [ "#div_id" ];
+    $.each( sixPull, function( i, val ) {
+        $(val).addClass("pull-six");
+    });
+
+    var sevenPull = [ "#div_id" ];
+    $.each( sevenPull, function( i, val ) {
+        $(val).addClass("pull-seven");
+    });
+
+    var eightPull = [ "#div_id" ];
+    $.each( eightPull, function( i, val ) {
+        $(val).addClass("pull-eight");
+    });
+
+    var ninePull = [ "#div_id" ];
+    $.each( ninePull, function( i, val ) {
+        $(val).addClass("pull-nine");
+    });
+
+    var tenPull = [ "#div_id" ];
+    $.each( tenPull, function( i, val ) {
+        $(val).addClass("pull-ten");
+    });
+
+    var elevenPull = [ "#div_id" ];
+    $.each( elevenPull, function( i, val ) {
+        $(val).addClass("pull-eleven");
+    });
+
+    var twelvePull = [ "#div_id" ];
+    $.each( twelvePull, function( i, val ) {
+        $(val).addClass("pull-twelve");
+    });
+
+    // Offset Fixes (Don't Change)
 
     $(".large-offset-1").removeClass("large-offset-1 medium-offset-1 medium-offset-2 medium-offset-3 medium-offset-4 medium-offset-5 medium-offset-6 medium-offset-7 medium-offset-8 medium-offset-9 medium-offset-10 medium-offset-11 medium-offset-12 small-offset-1 small-offset-2 small-offset-3 small-offset-4 small-offset-5 small-offset-6 small-offset-7 small-offset-8 small-offset-9 small-offset-10 small-offset-11 small-offset-12").addClass("offset-by-one");
     $(".large-offset-2").removeClass("large-offset-2 medium-offset-1 medium-offset-2 medium-offset-3 medium-offset-4 medium-offset-5 medium-offset-6 medium-offset-7 medium-offset-8 medium-offset-9 medium-offset-10 medium-offset-11 medium-offset-12 small-offset-1 small-offset-2 small-offset-3 small-offset-4 small-offset-5 small-offset-6 small-offset-7 small-offset-8 small-offset-9 small-offset-10 small-offset-11 small-offset-12").addClass("offset-by-two");
@@ -248,6 +394,68 @@ $(document).ready(function(){
     $(".small-offset-10").removeClass("small-offset-10").addClass("offset-by-ten");
     $(".small-offset-11").removeClass("small-offset-11").addClass("offset-by-eleven");
     $(".small-offset-12").removeClass("small-offset-12").addClass("offset-by-twelve");
+
+    // Custom Offset Fixes (add selectors to array)
+
+    var oneOffset = [ "#div_id" ];
+    $.each( oneOffset, function( i, val ) {
+        $(val).addClass("offset-by-one");
+    });
+
+    var twoOffset = [ "#div_id" ];
+    $.each( twoOffset, function( i, val ) {
+        $(val).addClass("offset-by-two");
+    });
+
+    var threeOffset = [ "#div_id" ];
+    $.each( threeOffset, function( i, val ) {
+        $(val).addClass("offset-by-three");
+    });
+
+    var fourOffset = [ "#div_id" ];
+    $.each( fourOffset, function( i, val ) {
+        $(val).addClass("offset-by-four");
+    });
+
+    var fiveOffset = [ "#div_id" ];
+    $.each( fiveOffset, function( i, val ) {
+        $(val).addClass("offset-by-five");
+    });
+
+    var sixOffset = [ "#div_id" ];
+    $.each( sixOffset, function( i, val ) {
+        $(val).addClass("offset-by-six");
+    });
+
+    var sevenOffset = [ "#div_id" ];
+    $.each( sevenOffset, function( i, val ) {
+        $(val).addClass("offset-by-seven");
+    });
+
+    var eightOffset = [ "#div_id" ];
+    $.each( eightOffset, function( i, val ) {
+        $(val).addClass("offset-by-eight");
+    });
+
+    var nineOffset = [ "#div_id" ];
+    $.each( nineOffset, function( i, val ) {
+        $(val).addClass("offset-by-nine");
+    });
+
+    var tenOffset = [ "#div_id" ];
+    $.each( tenOffset, function( i, val ) {
+        $(val).addClass("offset-by-ten");
+    });
+
+    var elevenOffset = [ "#div_id" ];
+    $.each( elevenOffset, function( i, val ) {
+        $(val).addClass("offset-by-eleven");
+    });
+
+    var twelveOffset = [ "#div_id" ];
+    $.each( twelveOffset, function( i, val ) {
+        $(val).addClass("offset-by-twelve");
+    });
 
     // Small Block-Grid Fixes (Don't Change)
 
@@ -325,23 +533,6 @@ $(document).ready(function(){
     $.each( sixUp, function( i, val ) {
         $(val).addClass("block-grid").addClass("six-up");
     });
-
-    // Change Element Function (used to restructure various markup)
-
-    (function($) {
-        $.fn.changeElementType = function(newType) {
-            var attrs = {};
-            if (!(this[0] && this[0].attributes))
-                return;
-
-            $.each(this[0].attributes, function(idx, attr) {
-                attrs[attr.nodeName] = attr.nodeValue;
-            });
-            this.replaceWith(function() {
-                return $("<" + newType + "/>", attrs).append($(this).contents());
-            });
-        };
-    })(jQuery);
 
     // Tab Fixes
 
