@@ -580,7 +580,7 @@ $(document).ready(function(){
     $('[fallback]').each(function() {
         var $t = $(this);
         var bg = $(this).attr('fallback');
-        $t.css({'background-image': 'url(' + bg + ')',});
+        $t.css({'background-image': 'url(' + bg + ')',}).removeAttr('fallback');
     });
 
 });
