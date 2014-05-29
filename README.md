@@ -71,8 +71,6 @@ $.each( sixCol, function( i, val ) {
 });
 ```
 
-Important: Currently no support for offsets and source ordering. I'll add that once I run into an instance where I need it for my own projects.
-
 #### Interchange
 
 Default markup for Foundation 5's Interchange images do not include a "src" attribute (this is written by Interchange's javascript). So as not to interfere with Interchange's operations in Foundation 5, you can either output a src conditionally for IE8, or in situations where caching prevents conditionals from firing this deep in your code, add a custom "fallback" parameter to your image tag pointing to your default image. The shim will rename all instances of the "fallback" paramater to "src" after page load.
