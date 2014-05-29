@@ -577,5 +577,11 @@ $(document).ready(function(){
         $t.attr({src : $t.attr('fallback')}).removeAttr('fallback');
     });
 
+    $('[fallback]').each(function() {
+        var $t = $(this);
+        var bg = $(this).attr('fallback');
+        $t.css({'background-image': 'url(' + bg + ')',});
+    });
+
 });
 
