@@ -16,7 +16,7 @@ http://zurb.com/
 
 ### Usage
 
-Conditionally load Foundation CSS/JS in your page header/footer using whatever serverside conditionals you prefer. See example.html for reference.
+Conditionally load Foundation CSS/JS in your page header/footer using whatever serverside conditionals you prefer. See [example.html](https://github.com/thotbox/foundation-shim/blob/master/example.html) for reference.
 
 Note: For ExpressionEngine users, check out my browser detection plugin (https://github.com/thotbox/expressionengine-browser-detect)
 
