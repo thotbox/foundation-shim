@@ -18,7 +18,7 @@ http://zurb.com/
 
 Conditionally load Foundation CSS/JS in your page header/footer using whatever serverside conditionals you prefer. See [example.html](https://github.com/thotbox/foundation-shim/blob/master/example.html) for reference.
 
-Note: For ExpressionEngine users, check out my browser detection plugin (https://github.com/thotbox/expressionengine-browser-detect)
+Note: For ExpressionEngine users, check out my [browser detection plugin](https://github.com/thotbox/expressionengine-browser-detect).
 
 Make sure that your Foundation 5 initialization happens conditionally so that IE8 doesn't throw an error. Since I'm writing an html class in my header, I prefer to test for that.
 
