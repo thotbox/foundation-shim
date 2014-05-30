@@ -81,6 +81,16 @@ Example:
 <img fallback="/path/to/default.jpg" data-interchange="[/path/to/default.jpg, (default)], [/path/to/bigger-image.jpg, (large)]">
 ```
 
+For background images, the shim will pull the image URL from the fallback attribute on any element type (body, section, div, etc.) and write an inline background-image style, removing the fallback attribute afterwards. 
+
+Example:
+
+```
+<body fallback="/path/to/default.jpg" data-interchange="[/path/to/default.jpg, (default)], [/path/to/bigger-image.jpg, (large)]">
+    ...
+</body>
+```
+
 #### Tabs
 
 Tab markup translates well, despite the significant differences in the structure. You'll need to recreate any custom styles you've setup to work with the translated F3 markup.
