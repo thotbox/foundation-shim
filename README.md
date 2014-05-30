@@ -87,7 +87,7 @@ Example:
 
 ```
 <body fallback="/path/to/default.jpg" data-interchange="[/path/to/default.jpg, (default)], [/path/to/bigger-image.jpg, (large)]">
-    ...
+    <!-- content -->
 </body>
 ```
 
