@@ -6,24 +6,24 @@
  * Translates Foundation 5 markup for use with Foundation 3 JS and CSS in Internet Explorer 8
 */
 
+// Change Element Function (used to restructure various markup)
+
+(function($) {
+    $.fn.changeElementType = function(newType) {
+        var attrs = {};
+        if (!(this[0] && this[0].attributes))
+            return;
+
+        $.each(this[0].attributes, function(idx, attr) {
+            attrs[attr.nodeName] = attr.nodeValue;
+        });
+        this.replaceWith(function() {
+            return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+    };
+})(jQuery);
+
 $(document).ready(function(){
-
-    // Change Element Function (used to restructure various markup)
-
-    (function($) {
-        $.fn.changeElementType = function(newType) {
-            var attrs = {};
-            if (!(this[0] && this[0].attributes))
-                return;
-
-            $.each(this[0].attributes, function(idx, attr) {
-                attrs[attr.nodeName] = attr.nodeValue;
-            });
-            this.replaceWith(function() {
-                return $("<" + newType + "/>", attrs).append($(this).contents());
-            });
-        };
-    })(jQuery);
 
     // Custom Row Fixes (add selectors to array)
 
